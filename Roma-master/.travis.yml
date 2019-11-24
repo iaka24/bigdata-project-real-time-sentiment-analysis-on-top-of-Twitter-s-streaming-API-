@@ -1,0 +1,17 @@
+language: scala
+scala:
+  - 2.11.11
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+
+script:
+    - sbt scalafmt::test
+    - sbt test:scalafmt::test
+    - sbt test
+    - sbt assembly
